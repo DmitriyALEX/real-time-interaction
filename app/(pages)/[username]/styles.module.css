@@ -1,0 +1,15 @@
+.profile_container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation_section {
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 10%;
+    right: 10%;
+}

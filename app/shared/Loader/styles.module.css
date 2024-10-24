@@ -1,0 +1,14 @@
+.loading_container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background-color: rgb(69, 39, 92);
+}
+
+.loading_title {
+    font-size: 2vw;
+}

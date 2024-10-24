@@ -1,0 +1,14 @@
+.secondary_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 25px;
+
+    border-radius: 8px;
+    border: 1px solid rgb(15, 13, 142);
+    &:hover {
+        cursor: pointer;
+        border: 1px solid rgb(19, 92, 226);
+    }
+}

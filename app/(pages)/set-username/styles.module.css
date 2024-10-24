@@ -1,0 +1,33 @@
+.set_username_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.set_username_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.allowed_characters {
+    margin: 0;
+    padding-bottom: 16px;
+    color: rgb(111, 30, 112);
+}
+
+.allowed_characters_title {
+    color: rgb(111, 30, 112);
+}
+
+.allowed_characters_title_warning {
+    color: rgb(93, 13, 14);
+}
+
+.correct_name_warning {
+    margin: 0;
+    color: rgb(217, 91, 91);
+}

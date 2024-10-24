@@ -1,0 +1,29 @@
+{
+    "name": "auth-pattern-firebase",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "prisma generate && next build",
+        "start": "next start",
+        "lint": "next lint",
+        "postinstall": "prisma generate"
+    },
+    "dependencies": {
+        "@prisma/client": "^5.21.0",
+        "firebase": "^10.13.2",
+        "firebase-admin": "^12.6.0",
+        "next": "14.2.13",
+        "prisma": "^5.21.0",
+        "react": "^18",
+        "react-dom": "^18"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.13",
+        "typescript": "^5"
+    }
+}
