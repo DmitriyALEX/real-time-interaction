@@ -1,8 +1,8 @@
 export interface IButton {
     title: string
+    onClick: () => void
     image_link?: string
     alt?: string
-    onClick: () => void
     onLoad?: () => void
     logoLoaded?: boolean
 }

@@ -25,10 +25,12 @@ export async function POST(req: NextRequest) {
                 image: user?.image,
             }
 
-            return NextResponse.json({ status: 'user found', checkUser: userData })
+            return NextResponse.json({
+                status: 'user found',
+                checkUser: userData,
+                checkedUsername: checkUsername.username,
+            })
         }
-
-        return NextResponse.json({ status: 'userChecked' })
     } catch (e) {
         console.error(e)
         return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 })

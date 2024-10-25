@@ -1,0 +1,8 @@
+.header_container {
+    width: 100vw;
+    top: 10%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

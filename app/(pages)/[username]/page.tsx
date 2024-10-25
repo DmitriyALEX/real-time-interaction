@@ -13,6 +13,7 @@ const Profile = ({ params }: { params: { username: string } }) => {
     const [userNotFound, setUserNotFound] = useState<boolean>(false)
     const router = useRouter()
 
+    //TODO: exchanged to FetchUserProfile function
     //USER PUBLIC PROFILE
     const loadProfile = async (username: string) => {
         const result = await fetch(urls.publicProfile, {
