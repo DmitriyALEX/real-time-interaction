@@ -25,3 +25,11 @@ model Username {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   @@unique([userId])
 }
+
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  fromUserId String
+  toUserId   String
+  message    String
+  date       DateTime @default(now())
+}
