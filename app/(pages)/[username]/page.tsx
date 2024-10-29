@@ -59,10 +59,6 @@ const Profile = ({ params }: { params: { username: string } }) => {
         return <Loader />
     }
 
-    const handleSettings = () => {
-        router.push('/settings')
-    }
-
     //PRIVATE ROUTE
     const isCurrentUser =
         user && fetchedData?.checkedUsername && params.username === fetchedData?.checkedUsername.username
@@ -70,11 +66,26 @@ const Profile = ({ params }: { params: { username: string } }) => {
     //check if fetchedData has user email
     const currentUserEmail = fetchedData?.checkUser?.email
 
+    const handleSettings = () => {
+        router.push('/settings')
+    }
+
+    const handleTestTaskPage = () => {
+        router.push('/test-task')
+    }
+
     return (
         <section className={styles.profile_container}>
             <nav className={styles.navigation_section}>
+                {isCurrentUser ? (
+                    <>
+                        <SecondaryButton title={'Test Task'} onClick={handleTestTaskPage} />
+                        <SecondaryButton title={'Log settings'} onClick={handleSettings} />
+                    </>
+                ) : (
+                    ''
+                )}
                 {user && <SecondaryButton title={'Log out'} onClick={logOut} />}
-                {isCurrentUser ? <SecondaryButton title={'Log settings'} onClick={handleSettings} /> : ''}
             </nav>
             <div>
                 {userNotFound ? (

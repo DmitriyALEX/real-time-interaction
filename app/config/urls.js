@@ -24,4 +24,7 @@ export const urls = {
 
     //PUBLIC PROFILE
     publicProfile: '/api/public-profile',
+
+    //WEBSOCKET FIND USER
+    findUserWebsocket: '/api/find-user',
 }
