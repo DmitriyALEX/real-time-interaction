@@ -7,7 +7,7 @@ import SecondaryButton from '@/app/shared/SecondaryButton'
 import { urls } from '@/app/config/urls'
 
 const TestTask = () => {
-    const [inputValue, setInputValue] = useState('')
+    const [username, setUsername] = useState('')
     const [userId, setUserId] = useState<string | null>(null)
 
     const [isCandidate, setIsCandidate] = useState(false)
@@ -19,7 +19,7 @@ const TestTask = () => {
                     'Content-Type': 'application/json',
                 },
                 method: 'post',
-                body: JSON.stringify({ inputValue }),
+                body: JSON.stringify({ username }),
             })
             const data = await result.json()
 
@@ -42,7 +42,7 @@ const TestTask = () => {
                 <p></p>
                 <p className={styles.find_candidate_input_title}>Find candidate</p>
                 <div className={styles.find_candidate_input}>
-                    <Input onChange={setInputValue} />
+                    <Input onChange={setUsername} />
                     <SecondaryButton title={'search'} onClick={() => handleFind()} />
                 </div>
             </div>

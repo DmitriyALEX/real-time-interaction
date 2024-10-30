@@ -14,8 +14,6 @@ const TestTaskForm: React.FC<IInfoFormProps> = ({ toUserId }) => {
 
     const fromUserId = fetchedData?.checkUser.id
 
-    console.log(toUserId)
-
     useEffect(() => {
         if (!toUserId) return
 

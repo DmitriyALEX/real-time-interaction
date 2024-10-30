@@ -27,4 +27,7 @@ export const urls = {
 
     //WEBSOCKET FIND USER
     findUserWebsocket: '/api/find-user',
+
+    //GET MESSAGES
+    getMessages: '/api/get-messages',
 }
