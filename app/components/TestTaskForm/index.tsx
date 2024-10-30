@@ -1,19 +1,25 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { io, Socket } from 'socket.io-client'
+import { useAuth } from '@/app/context/authContext'
 
 interface IInfoFormProps {
-    userId: string | null
+    toUserId: string | null
 }
 
-const TestTaskForm: React.FC<IInfoFormProps> = ({ userId }) => {
+const TestTaskForm: React.FC<IInfoFormProps> = ({ toUserId }) => {
+    const { fetchedData } = useAuth()
     const [socket, setSocket] = useState<Socket | undefined>(undefined)
     const [textInput, setTextInput] = useState('')
 
-    useEffect(() => {
-        if (!userId) return
+    const fromUserId = fetchedData?.checkUser.id
 
-        const newSocket = io('http://localhost:5000/', { query: { userId } })
+    console.log(toUserId)
+
+    useEffect(() => {
+        if (!toUserId) return
+
+        const newSocket = io('http://localhost:5000/', { query: { toUserId } })
         newSocket.on('message', msg => {
             console.log(`message1 ${msg}`)
         })
@@ -22,11 +28,16 @@ const TestTaskForm: React.FC<IInfoFormProps> = ({ userId }) => {
         return () => {
             newSocket.disconnect()
         }
-    }, [userId])
+    }, [toUserId])
 
     const handleSendMessage = () => {
         if (socket) {
-            socket?.emit('message', textInput)
+            const messageData = {
+                fromUserId: fromUserId,
+                toUserId: toUserId,
+                message: textInput,
+            }
+            socket?.emit('message', messageData)
             setTextInput('')
         }
     }

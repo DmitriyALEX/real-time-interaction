@@ -74,11 +74,16 @@ const Profile = ({ params }: { params: { username: string } }) => {
         router.push('/test-task')
     }
 
+    const handleMessagesPage = () => {
+        router.push('/messages')
+    }
+
     return (
         <section className={styles.profile_container}>
             <nav className={styles.navigation_section}>
                 {isCurrentUser ? (
                     <>
+                        <SecondaryButton title={'Messages'} onClick={handleMessagesPage} />
                         <SecondaryButton title={'Test Task'} onClick={handleTestTaskPage} />
                         <SecondaryButton title={'Log settings'} onClick={handleSettings} />
                     </>
