@@ -16,6 +16,7 @@ model User {
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   username       Username?
+  messages        Message[] 
 }
 
 model Username {
@@ -24,4 +25,16 @@ model Username {
   username String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   @@unique([userId])
+}
+
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @db.ObjectId
+  fromUserId String
+  toUserId   String
+  message    String
+  isRead     Boolean @default(false)
+  date       DateTime @default(now())
+  user       User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // @@unique([userId])
 }

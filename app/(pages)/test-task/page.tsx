@@ -49,7 +49,7 @@ const TestTask = () => {
 
             {/* set test information */}
             <div className={styles.test_info_container}>
-                <TestTaskForm userId={userId} />
+                <TestTaskForm toUserId={userId} />
             </div>
         </section>
     )
