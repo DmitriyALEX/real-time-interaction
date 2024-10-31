@@ -14,10 +14,13 @@ const TestTaskForm: React.FC<IInfoFormProps> = ({ toUserId }) => {
 
     const fromUserId = fetchedData?.checkUser.id
 
+    //websocket server
+    const WEBSOKET_SERVER = process.env.NEXT_PUBLIC_DEPLOYED_WEBSOCKET_SERVER || 'http://localhost:5000/'
+
     useEffect(() => {
         if (!toUserId) return
 
-        const newSocket = io('http://localhost:5000/', { query: { toUserId } })
+        const newSocket = io(WEBSOKET_SERVER, { query: { toUserId } })
         newSocket.on('message', msg => {
             console.log(`message1 ${msg}`)
         })
