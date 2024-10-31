@@ -13,10 +13,13 @@ const Messages = () => {
 
     const userId = fetchedData?.checkUser.id
 
+    //websocket server
+    const WEBSOKET_SERVER = process.env.NEXT_PUBLIC_DEPLOYED_WEBSOCKET_SERVER || 'http://localhost:5000/'
+
     useEffect(() => {
         if (!userId) return
 
-        const newSocket = io('http://localhost:5000/', { query: { userId } })
+        const newSocket = io(WEBSOKET_SERVER, { query: { userId } })
 
         newSocket.on('message', msg => {
             console.log('msg', msg)
